@@ -8,7 +8,13 @@ lines = sc.textFile('ml-100k/u.data')
 ratings = lines.map(lambda x: x.split()[2])
 result = ratings.countByValue()
 
+print('Result:')
+print(result)
+
 sortedResults = collections.OrderedDict(sorted(result.items()))
+
+print('Sorted Results:')
+print(sortedResults)
 
 for key, value in sortedResults.iteritems():
     print "%s %i" % (key, value)
