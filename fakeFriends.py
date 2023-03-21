@@ -13,5 +13,5 @@ lines = sc.textFile('fakeFriends\fakefriends.csv')
 rdd = lines.map(parse_line)
 result = rdd.collect()
 
-for key, value in rdd.iteritems():
+for key, value in result.iteritems():
     print(key, value)
