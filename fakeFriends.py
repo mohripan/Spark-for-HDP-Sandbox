@@ -11,7 +11,7 @@ sc = SparkContext(conf = conf)
 
 lines = sc.textFile('fakeFriends\fakefriends.csv')
 rdd = lines.map(parse_line)
-result = rdd.collect()
+totals_by_age = rdd.mapValues(lambda x: (x, 1)).reduceByKey(lambda x, y: (x[0] + y[0], x[1] + y[1]))
 
-for key, value in result.iteritems():
-    print(key, value)
+print('Results:')
+print(totals_by_age)
