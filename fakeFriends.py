@@ -13,5 +13,7 @@ lines = sc.textFile('fakeFriends\fakefriends.csv')
 rdd = lines.map(parse_line)
 totals_by_age = rdd.mapValues(lambda x: (x, 1)).reduceByKey(lambda x, y: (x[0] + y[0], x[1] + y[1]))
 
-print('Results:')
-print(totals_by_age)
+averagesByAge = totals_by_age.mapValues(lambda x: x[0] / x[1])
+results = averagesByAge.collect()
+for result in results:
+    print(result)
