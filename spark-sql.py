@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession, Row
 
-spark = SparkSession.appName('SparkSQL').getOrCreate()
+spark = SparkSession.builder.appName('SparkSQL').getOrCreate()
 
 def mapper(line):
     fields = line.split(',')
