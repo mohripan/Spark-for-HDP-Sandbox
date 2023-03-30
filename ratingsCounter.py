@@ -16,5 +16,5 @@ sortedResults = collections.OrderedDict(sorted(result.items()))
 print('Sorted Results:')
 print(sortedResults)
 
-for key, value in sortedResults.iteritems():
-    print "%s %i" % (key, value)
+for key, value in sortedResults.items():
+    print(key, value)
